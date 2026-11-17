@@ -5,8 +5,10 @@ namespace FXExchange.Domain.ValueObjects;
 
 public sealed record CurrencyPair
 {
+    private const char DefaultSeparator = '/';
+
     private static readonly Regex PairPattern = new(
-        @"^\s*([A-Za-z]{3})\s*/\s*([A-Za-z]{3})\s*$",
+        $@"^\s*([A-Za-z]{{3}})\s*{Regex.Escape(DefaultSeparator.ToString())}\s*([A-Za-z]{{3}})\s*$",
         RegexOptions.Compiled |
         RegexOptions.CultureInvariant,
         TimeSpan.FromSeconds(1));
@@ -46,6 +48,6 @@ public sealed record CurrencyPair
 
     public override string ToString()
     {
-        return $"{Source}/{Target}";
+        return $"{Source}{DefaultSeparator}{Target}";
     }
 }
