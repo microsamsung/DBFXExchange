@@ -16,8 +16,7 @@
     <ProjectReference Include="..\FXExchange.Infrastructure\FXExchange.Infrastructure.csproj" />
   </ItemGroup>
 	<ItemGroup>
-		<None Update="appsettings.json"
-			  CopyToOutputDirectory="PreserveNewest" />
+		<None Update="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 
 </Project>
